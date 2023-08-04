@@ -1,0 +1,22 @@
+{
+  "name": "p4-ohmyfood",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch style/sass/main.scss:./style.css --style expanded"
+  },
+  "devDependencies": {
+    "sass": "^1.64.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casumelanie/Projet4-OCR-Ohmyfood.git"
+  },
+  "author": "Melanie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/casumelanie/Projet4-OCR-Ohmyfood/issues"
+  },
+  "homepage": "https://github.com/casumelanie/Projet4-OCR-Ohmyfood#readme",
+  "description": ""
+}
