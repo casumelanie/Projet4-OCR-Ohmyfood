@@ -1,12 +1,10 @@
 {
-  "name": "p4-ohmyfood",
-  "version": "0.1.0",
+  "name": "ohmyfood-site",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch style/sass/main.scss:./style.css --style expanded"
-  },
-  "devDependencies": {
-    "sass": "^1.64.2"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,5 +16,7 @@
     "url": "https://github.com/casumelanie/Projet4-OCR-Ohmyfood/issues"
   },
   "homepage": "https://github.com/casumelanie/Projet4-OCR-Ohmyfood#readme",
-  "description": ""
+  "dependencies": {
+    "sass": "^1.64.2"
+  }
 }
