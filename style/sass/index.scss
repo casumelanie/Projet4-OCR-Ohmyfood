@@ -1,0 +1,65 @@
+//font-family: 'Roboto', sans-serif; --> 300 / 500 / 700
+//font-family: 'Shrikhand', cursive; --> 400
+
+//media queries : min-width:769px
+
+body {
+    font-family: $main-font;
+    @include text($main-txt-size, $medium);
+    margin: 0;
+}
+
+h1,
+h2 {
+    @include title-main;
+}
+
+i {
+    display: block;
+}
+
+.restaurants__card--component {
+    display: flex;
+}
+
+.restaurants__card--img {
+    width: 200px;
+} //Taille random en attendant d'arriver à la partie restaurant
+
+//Partie du dessus à modifier avec la méthode BEM
+
+header {
+    & img {
+        display: block;
+        margin: 14px auto 13px auto;
+        width: 197px;
+    }
+    & .location {
+        background-color: #EAEAEA;
+        text-align: center;
+        padding: 15px 0;
+        color: $footer-background--header-txt;
+        & i {
+            margin-right: 14px;
+        }
+    }
+}
+
+.reservation {
+    text-align: center;
+    background-color: $main-background;
+    padding: 15px 25px 40px 25px;
+    & p {
+        font-weight: $light;
+    }
+    & a {
+        @include text($main-txt-size, $medium);
+        padding: 13px 18.75px;
+        border-radius: 25px;
+        border: none;
+        background: linear-gradient($secondary, $primary);
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+    }
+}
