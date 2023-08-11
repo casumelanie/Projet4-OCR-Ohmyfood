@@ -1,0 +1,25 @@
+footer {
+    background-color: $footer-background--header-txt;
+    color: white;
+    padding: 22px 25px;
+    & .footer__title {
+        font-family: $secondary-font;
+        font-size: $subtitle-size;
+    }
+    & .footer__content {
+        list-style: none;
+        padding: 0;
+        &--text {
+            margin-top: 7px;
+            & .fa-solid {
+                margin-right: 10px;
+            }
+            & .fa-handshake-angle {
+                font-size: 12px;
+            }
+        }
+        &--text-light {
+            font-weight: $regular;
+        }
+    }
+}

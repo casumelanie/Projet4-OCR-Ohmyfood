@@ -21,10 +21,7 @@ $medium: 500;
 $regular: 400;
 $light: 300;
 
-$center: auto;
-
 //Mixins
-
 @mixin title-main {
     font-size: $title-size;
     font-weight: 700;
