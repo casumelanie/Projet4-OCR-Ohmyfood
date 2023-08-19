@@ -31,3 +31,12 @@ $light: 300;
     font-size: $size;
     font-weight: $weight;
 }
+
+@mixin desktop-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+@mixin margin-footer {
+    margin-bottom: 0;
+}
