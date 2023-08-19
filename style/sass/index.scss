@@ -71,6 +71,11 @@ header {
         text-decoration: none;
         display: inline-block;
         box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+        transition: all 0.5s;
+    }
+    & a:hover {
+        filter: brightness(113%);
+        box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.40);
     }
 }
 
@@ -109,6 +114,9 @@ header {
                 & .fa-solid {
                     color: #7E7E7E;
                     font-size: 20px;
+                }
+                & .fa-store {
+                    color: $primary;
                 }
             }
         }
@@ -156,16 +164,30 @@ header {
                         @include text($card-description-size, $light);
                     }
                 }
-            }
-            & .fa-heart {
-                font-size: 22px;
-                transition: background 0s;
-            }
-            & .fa-heart:hover {
-                font-weight: 900;
-                background: linear-gradient($primary, $secondary);
-                color: transparent;
-                -webkit-background-clip: text;
+                &-icons {
+                    font-size: 22px;
+                    & .fa-solid {
+                        font-weight: 900;
+                        background: linear-gradient($primary, $secondary);
+                        color: transparent;
+                        -webkit-background-clip: text;
+                        position: absolute;
+                        opacity: 0;
+                        transition: opacity 0.5s;
+                    }
+                    & .fa-regular {
+                        opacity: 1;
+                        transition: opacity 1s;
+                    }
+                }
+                &-icons:hover .fa-solid {
+                    opacity: 1;
+
+                }
+                &-icons:hover .fa-regular {
+                    opacity: 0;
+                    transition: opacity 0.5s;
+                }
             }
         }
     }
