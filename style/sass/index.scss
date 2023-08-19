@@ -1,8 +1,6 @@
 //font-family: 'Roboto', sans-serif; --> 300 / 500 / 700
 //font-family: 'Shrikhand', cursive; --> 400
 
-//media queries : min-width:769px
-
 body {
     font-family: $main-font;
     @include text($main-txt-size, $medium);
@@ -81,10 +79,18 @@ header {
 
 .fonctionnement {
     padding: 48px 20px 68px 20px;
+
+    @media screen and (min-width:1024px) {
+        @include desktop-container;
+    }
     &__container {
         display: flex;
         flex-direction: column;
         gap: 30px;
+
+        @media screen and (min-width:1024px) {
+            flex-direction: row;
+        }
         &--card {
             background-color: $main-background;
             box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
@@ -94,6 +100,10 @@ header {
             display: flex;
             align-items: center;
             margin-left: 12px;
+            
+            @media screen and (min-width:1024px) {
+                width: 33.33%;
+            }
             &-number {
                 background: $primary;
                 border-radius: 50%;
@@ -126,67 +136,82 @@ header {
 .restaurants {
     background-color: $main-background;
     padding: 30px 18px 50px 18px;
-    & .restaurants__card--container {
+    &__content {
+        @media screen and (min-width:1024px) {
+            @include desktop-container;
+        }
+    }
+    &__cards {
         display: flex;
         flex-direction: column;
         gap: 18px;
-        & .restaurants__card {
-            background-color: white;
-            border-radius: 15px;
-            position: relative;
-            &--new {
-                position: absolute;
-                right: 15px;
-                top: 15px;
-                background-color: $accent;
-                padding: 7px 11px;
-                font-size: 14px;
-                border-radius: 2px;
-                color: #008766;
+
+        @media screen and (min-width:1024px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+        & a {
+            @media screen and (min-width:1024px) {
+                width: calc(50% - 25px);
             }
-            &--img {
-                width: 100%;
-                height: 231px;
-                border-top-left-radius: 15px;
-                border-top-right-radius: 15px;
-                object-position: center;
-                object-fit: cover;
-            }
-            &--component {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                padding: 12px 22px 13px 15px;
-                &-text {
-                    & p {
-                        margin: 5px 0;
-                        @include text($card-description-size, $light);
-                    }
+            & .restaurants__card {
+                background-color: white;
+                border-radius: 15px;
+                position: relative;
+                &--new {
+                    position: absolute;
+                    right: 15px;
+                    top: 15px;
+                    background-color: $accent;
+                    padding: 7px 11px;
+                    font-size: 14px;
+                    border-radius: 2px;
+                    color: #008766;
                 }
-                &-icons {
-                    font-size: 22px;
-                    & .fa-solid {
-                        font-weight: 900;
-                        background: linear-gradient($primary, $secondary);
-                        color: transparent;
-                        -webkit-background-clip: text;
-                        position: absolute;
+                &--img {
+                    width: 100%;
+                    height: 231px;
+                    border-top-left-radius: 15px;
+                    border-top-right-radius: 15px;
+                    object-position: center;
+                    object-fit: cover;
+                }
+                &--component {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 12px 22px 13px 15px;
+                    &-text {
+                        & p {
+                            margin: 5px 0;
+                            @include text($card-description-size, $light);
+                        }
+                    }
+                    &-icons {
+                        font-size: 22px;
+                        & .fa-solid {
+                            font-weight: 900;
+                            background: linear-gradient($primary, $secondary);
+                            color: transparent;
+                            -webkit-background-clip: text;
+                            position: absolute;
+                            opacity: 0;
+                            transition: opacity 0.5s;
+                        }
+                        & .fa-regular {
+                            opacity: 1;
+                            transition: opacity 1s;
+                        }
+                    }
+                    &-icons:hover .fa-solid {
+                        opacity: 1;
+                    }
+                    &-icons:hover .fa-regular {
                         opacity: 0;
                         transition: opacity 0.5s;
                     }
-                    & .fa-regular {
-                        opacity: 1;
-                        transition: opacity 1s;
-                    }
-                }
-                &-icons:hover .fa-solid {
-                    opacity: 1;
-
-                }
-                &-icons:hover .fa-regular {
-                    opacity: 0;
-                    transition: opacity 0.5s;
                 }
             }
         }
