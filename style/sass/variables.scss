@@ -1,3 +1,6 @@
+//font-family: 'Roboto', sans-serif; --> 300 / 500 / 700
+//font-family: 'Shrikhand', cursive; --> 400
+
 //Colors
 $primary: #9356DC;
 $secondary: #FF79DA;
@@ -30,4 +33,28 @@ $light: 300;
 @mixin text($size, $weight) {
     font-size: $size;
     font-weight: $weight;
+}
+
+@mixin desktop-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+@mixin margin-footer {
+    margin-bottom: 0;
+}
+
+@mixin loader {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 15px solid transparent;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

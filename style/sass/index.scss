@@ -1,7 +1,164 @@
-//font-family: 'Roboto', sans-serif; --> 300 / 500 / 700
-//font-family: 'Shrikhand', cursive; --> 400
+.loader {
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    height: 100vh;
+    background-color: $main-background;
+    @include flex-center;
+    flex-direction: column;
+    z-index: 99;
+    overflow: hidden;
+    animation: loader-final-mobile 3s both 5.5s, loader-visibility 4s both 6s;
 
-//media queries : min-width:769px
+    @media screen and (min-width:1024px)  {
+        animation: loader-final-desktop 3s both 5.5s, loader-visibility 4s both 6s;
+    }
+    &__container {
+        @include flex-center;
+        &--first {
+            @include loader;
+            width: 110px;
+            height: 110px;
+            border-top: 15px solid $primary;
+            animation: bordure-first 2s both 3s, border-rotation 2s both 3s;
+            .loader__container--second {
+                @include loader;
+                width: 80px;
+                height: 80px;
+                border-bottom: 15px solid $secondary;
+                animation: bordure-second 2s both 1.5s, border-rotation 2s both 1.5s;
+                .loader__container--third {
+                    @include loader;
+                    width: 50px;
+                    height: 50px;
+                    border-left: 15px solid $accent;
+                    animation: bordure-third 2s both 0.5s, border-rotation 2s both 0.5s;
+                    .loader__container--four {
+                        box-sizing: border-box;
+                        background-color: #F6F6F6;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+    &__txt {
+        @include flex-center;
+        font-family: 'Shrikhand', cursive;
+        position: absolute;
+        top: 60%;
+        &--first {
+            color: $accent;
+            animation: apparition 1s both 1s, txt-after 1s both 4.2s;
+        }
+        &--second {
+            color: $secondary;
+            animation: apparition 1s both 2.25s, txt-after 1s both 4.2s;
+        }
+        &--third {
+            color: $primary;
+            animation: apparition 1s both 3.5s, txt-after 1s both 4.2s;
+        }
+    }
+}
+
+@keyframes bordure-first {
+    50% {
+        border-right-color: $primary;
+    }
+
+    75% {
+        border-bottom-color: $primary;
+    }
+
+    100% {
+        border-left-color: $primary;
+        border-color: $primary;
+    }
+}
+
+@keyframes bordure-second {
+    50% {
+        border-left-color: $secondary;
+    }
+
+    75% {
+        border-top-color: $secondary;
+    }
+
+    100% {
+        border-right-color: $secondary;
+        border-color: $secondary;
+    }
+}
+
+@keyframes bordure-third {
+    50% {
+        border-top-color: $accent;
+    }
+
+    75% {
+        border-right-color: $accent;
+    }
+
+    100% {
+        border-bottom-color: $accent;
+        border-color: $accent;
+    }
+}
+
+@keyframes border-rotation {
+    0% {
+        transform: rotate();
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes apparition {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes txt-after {
+    to {
+        color: black;
+    }
+}
+
+@keyframes loader-final-mobile {
+    to {
+        transform: scale(40);
+    }
+}
+@keyframes loader-final-desktop {
+    to {
+        transform: scale(80);
+    }
+}
+
+@keyframes loader-visibility {
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
 
 body {
     font-family: $main-font;
@@ -34,8 +191,7 @@ a {
 header {
     .header-img {
         width: 100%;
-        display: flex;
-        justify-content: center;
+        @include flex-center;
         padding: 14px 0px 13px 0px;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
         position: relative;
@@ -71,15 +227,28 @@ header {
         text-decoration: none;
         display: inline-block;
         box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+        transition: all 0.5s;
+    }
+    & a:hover {
+        filter: brightness(113%);
+        box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.40);
     }
 }
 
 .fonctionnement {
     padding: 48px 20px 68px 20px;
+
+    @media screen and (min-width:1024px) {
+        @include desktop-container;
+    }
     &__container {
         display: flex;
         flex-direction: column;
         gap: 30px;
+
+        @media screen and (min-width:1024px) {
+            flex-direction: row;
+        }
         &--card {
             background-color: $main-background;
             box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
@@ -89,14 +258,16 @@ header {
             display: flex;
             align-items: center;
             margin-left: 12px;
+            
+            @media screen and (min-width:1024px) {
+                width: 33.33%;
+            }
             &-number {
                 background: $primary;
                 border-radius: 50%;
                 width: 24px;
                 height: 24px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                @include flex-center;
                 color: white;
                 margin-left: -12px;
                 align-self: center;
@@ -110,6 +281,9 @@ header {
                     color: #7E7E7E;
                     font-size: 20px;
                 }
+                & .fa-store {
+                    color: $primary;
+                }
             }
         }
     }
@@ -118,54 +292,83 @@ header {
 .restaurants {
     background-color: $main-background;
     padding: 30px 18px 50px 18px;
-    & .restaurants__card--container {
+    &__content {
+        @media screen and (min-width:1024px) {
+            @include desktop-container;
+        }
+    }
+    &__cards {
         display: flex;
         flex-direction: column;
         gap: 18px;
-        & .restaurants__card {
-            background-color: white;
-            border-radius: 15px;
-            position: relative;
-            &--new {
-                position: absolute;
-                right: 15px;
-                top: 15px;
-                background-color: $accent;
-                padding: 7px 11px;
-                font-size: 14px;
-                border-radius: 2px;
-                color: #008766;
+
+        @media screen and (min-width:1024px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+        & a {
+            @media screen and (min-width:1024px) {
+                width: calc(50% - 25px);
             }
-            &--img {
-                width: 100%;
-                height: 231px;
-                border-top-left-radius: 15px;
-                border-top-right-radius: 15px;
-                object-position: center;
-                object-fit: cover;
-            }
-            &--component {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                padding: 12px 22px 13px 15px;
-                &-text {
-                    & p {
-                        margin: 5px 0;
-                        @include text($card-description-size, $light);
+            & .restaurants__card {
+                background-color: white;
+                border-radius: 15px;
+                position: relative;
+                &--new {
+                    position: absolute;
+                    right: 15px;
+                    top: 15px;
+                    background-color: $accent;
+                    padding: 7px 11px;
+                    font-size: 14px;
+                    border-radius: 2px;
+                    color: #008766;
+                }
+                &--img {
+                    width: 100%;
+                    height: 231px;
+                    border-top-left-radius: 15px;
+                    border-top-right-radius: 15px;
+                    object-position: center;
+                    object-fit: cover;
+                }
+                &--component {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 12px 22px 13px 15px;
+                    &-text {
+                        & p {
+                            margin: 5px 0;
+                            @include text($card-description-size, $light);
+                        }
+                    }
+                    &-icons {
+                        font-size: 22px;
+                        & .fa-solid {
+                            font-weight: 900;
+                            background: linear-gradient($primary, $secondary);
+                            color: transparent;
+                            -webkit-background-clip: text;
+                            position: absolute;
+                            opacity: 0;
+                            transition: opacity 0.5s;
+                        }
+                        & .fa-regular {
+                            opacity: 1;
+                            transition: opacity 1s;
+                        }
+                    }
+                    &-icons:hover .fa-solid {
+                        opacity: 1;
+                    }
+                    &-icons:hover .fa-regular {
+                        opacity: 0;
+                        transition: opacity 0.5s;
                     }
                 }
-            }
-            & .fa-heart {
-                font-size: 22px;
-                transition: background 0s;
-            }
-            & .fa-heart:hover {
-                font-weight: 900;
-                background: linear-gradient($primary, $secondary);
-                color: transparent;
-                -webkit-background-clip: text;
             }
         }
     }
