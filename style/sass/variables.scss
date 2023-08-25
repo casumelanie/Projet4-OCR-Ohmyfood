@@ -17,44 +17,10 @@ $main-txt-size : 16px;
 $title-size : 24px;
 $subtitle-size: 18px;
 $card-description-size: 17px;
+$heart-size: 22px;
 
 //Font-weight
 $bold: 700;
 $medium: 500;
 $regular: 400;
 $light: 300;
-
-//Mixins
-@mixin title-main {
-    font-size: $title-size;
-    font-weight: 700;
-}
-
-@mixin text($size, $weight) {
-    font-size: $size;
-    font-weight: $weight;
-}
-
-@mixin desktop-container {
-    max-width: 1100px;
-    margin: auto;
-}
-
-@mixin margin-footer {
-    margin-bottom: 0;
-}
-
-@mixin loader {
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 15px solid transparent;
-}
-
-@mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
