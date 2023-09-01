@@ -8,9 +8,9 @@
     overflow: hidden;
     z-index: 9;
     @include flex-center;
-    animation: loader-end-visibility 0s both 6s;
+    animation: loader-end-visibility 0s both 3.5s;
     & .loader__content {
-        animation: loader-content-end 5.55s both 0.5s;
+        animation: loader-block 3.5s both 0s;
         z-index: 99;
         @include flex-center;
         position: relative;
@@ -21,19 +21,19 @@
                 width: 110px;
                 height: 110px;
                 border-top: 15px solid $primary;
-                animation: bordure-first 2s both 3s, border-rotation 2s both 3s;
+                animation: bordure-first 1s both 1.8s, border-rotation 1s both 1.8s;
                 .loader__container--second {
                     @include loader;
                     width: 80px;
                     height: 80px;
                     border-bottom: 15px solid $secondary;
-                    animation: bordure-second 2s both 1.5s, border-rotation 2s both 1.5s;
+                    animation: bordure-second 1s both 1s, border-rotation 1s both 1s;
                     .loader__container--third {
                         @include loader;
                         width: 50px;
                         height: 50px;
                         border-left: 15px solid $accent;
-                        animation: bordure-third 2s both 0.2s, border-rotation 2s both 0.2s;
+                        animation: bordure-third 1s both 0.15s, border-rotation 1s both 0.15s;
                         .loader__container--four {
                             box-sizing: border-box;
                             background-color: #F6F6F6;
@@ -52,15 +52,15 @@
             bottom: -1.5rem;
             &--first {
                 color: $accent;
-                animation: txt-apparition 1s both 0.8s, txt-after 1s both 4.2s;
+                animation: txt-apparition 1s both 0.4s, txt-after 0.5s both 2.8s;
             }
             &--second {
                 color: $secondary;
-                animation: txt-apparition 1s both 2.25s, txt-after 1s both 4.2s;
+                animation: txt-apparition 1s both 1.4s, txt-after 0.5s both 2.8s;
             }
             &--third {
                 color: $primary;
-                animation: txt-apparition 1s both 3.5s, txt-after 1s both 4.2s;
+                animation: txt-apparition 1s both 2.2s, txt-after 0.5s both 2.8s;
             }
         }
     }
@@ -134,28 +134,18 @@
     }
 }
 
-@keyframes loader-content-end {
+@keyframes loader-block {
     0% {
         transform: scale(1);
         opacity: 1;
     }
-    25% {
-        transform: scale(1.5);
-    }
-    45% {
-        transform: scale(2);
-    }
-    65% {
-        transform: scale(2.5);
-    }
     90% {
-        transform: scale(3);
+        transform: scale(1.8);
         opacity: 1;
     }
     100% {
         transform: scale(0);
         opacity: 0;
-        visibility: hidden;
     }
 }
 

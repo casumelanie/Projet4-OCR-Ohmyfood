@@ -10,10 +10,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: loader-end-visibility 0s both 6s;
+  animation: loader-end-visibility 0s both 3.5s;
 }
 .loader .loader__content {
-  animation: loader-content-end 5.55s both 0.5s;
+  animation: loader-block 3.5s both 0s;
   z-index: 99;
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@
   width: 110px;
   height: 110px;
   border-top: 15px solid #9356DC;
-  animation: bordure-first 2s both 3s, border-rotation 2s both 3s;
+  animation: bordure-first 1s both 1.8s, border-rotation 1s both 1.8s;
 }
 .loader .loader__content .loader__container--first .loader__container--second {
   box-sizing: border-box;
@@ -47,7 +47,7 @@
   width: 80px;
   height: 80px;
   border-bottom: 15px solid #FF79DA;
-  animation: bordure-second 2s both 1.5s, border-rotation 2s both 1.5s;
+  animation: bordure-second 1s both 1s, border-rotation 1s both 1s;
 }
 .loader .loader__content .loader__container--first .loader__container--second .loader__container--third {
   box-sizing: border-box;
@@ -59,7 +59,7 @@
   width: 50px;
   height: 50px;
   border-left: 15px solid #99E2D0;
-  animation: bordure-third 2s both 0.2s, border-rotation 2s both 0.2s;
+  animation: bordure-third 1s both 0.15s, border-rotation 1s both 0.15s;
 }
 .loader .loader__content .loader__container--first .loader__container--second .loader__container--third .loader__container--four {
   box-sizing: border-box;
@@ -78,15 +78,15 @@
 }
 .loader .loader__content .loader__txt--first {
   color: #99E2D0;
-  animation: txt-apparition 1s both 0.8s, txt-after 1s both 4.2s;
+  animation: txt-apparition 1s both 0.4s, txt-after 0.5s both 2.8s;
 }
 .loader .loader__content .loader__txt--second {
   color: #FF79DA;
-  animation: txt-apparition 1s both 2.25s, txt-after 1s both 4.2s;
+  animation: txt-apparition 1s both 1.4s, txt-after 0.5s both 2.8s;
 }
 .loader .loader__content .loader__txt--third {
   color: #9356DC;
-  animation: txt-apparition 1s both 3.5s, txt-after 1s both 4.2s;
+  animation: txt-apparition 1s both 2.2s, txt-after 0.5s both 2.8s;
 }
 
 @keyframes bordure-first {
@@ -152,28 +152,18 @@
     color: black;
   }
 }
-@keyframes loader-content-end {
+@keyframes loader-block {
   0% {
     transform: scale(1);
     opacity: 1;
   }
-  25% {
-    transform: scale(1.5);
-  }
-  45% {
-    transform: scale(2);
-  }
-  65% {
-    transform: scale(2.5);
-  }
   90% {
-    transform: scale(3);
+    transform: scale(1.8);
     opacity: 1;
   }
   100% {
     transform: scale(0);
     opacity: 0;
-    visibility: hidden;
   }
 }
 @keyframes loader-end-visibility {
