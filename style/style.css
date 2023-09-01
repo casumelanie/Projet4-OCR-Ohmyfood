@@ -425,6 +425,7 @@ header .location i {
 
 .container {
   width: 100%;
+  overflow: hidden;
 }
 .container__img {
   width: 100%;
@@ -487,6 +488,12 @@ header .location i {
 .container .restaurant__header--icons:hover .fa-regular {
   opacity: 0;
   transition: opacity 0.5s;
+}
+@media screen and (min-width: 1024px) {
+  .container .restaurant__component .restaurant__menu {
+    width: 70%;
+    margin: auto;
+  }
 }
 .container .restaurant__component .restaurant__menu--title {
   text-transform: uppercase;
@@ -566,6 +573,15 @@ header .location i {
 .container .restaurant__component .restaurant__menu--card:hover .restaurant__menu--card-content {
   width: calc(100% - 4rem);
 }
+.container .restaurant__component .restaurant__menu:nth-of-type(1) {
+  animation: fade-in 1s ease 0.25s both;
+}
+.container .restaurant__component .restaurant__menu:nth-of-type(2) {
+  animation: fade-in 1s ease 1.25s both;
+}
+.container .restaurant__component .restaurant__menu:nth-of-type(3) {
+  animation: fade-in 1s ease 2.25s both;
+}
 .container .restaurant__cta {
   display: flex;
   justify-content: center;
@@ -590,6 +606,16 @@ header .location i {
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.4);
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 footer {
   background-color: #353535;
   color: white;
