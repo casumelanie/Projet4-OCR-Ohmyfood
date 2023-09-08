@@ -220,8 +220,7 @@ header {
         @include bouton-cta;
     }
     & a:hover {
-        filter: brightness(113%);
-        box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.40);
+        @include bouton-cta-hover;
     }
 }
 
